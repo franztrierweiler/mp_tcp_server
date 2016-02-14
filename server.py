@@ -9,6 +9,7 @@ NB_MAX_CONNECTIONS = 1
 NB_SIZE_BLOCK = 16
 
 def get_data_block(data_socket, size):
+	"""Get a block of at most size bytes from the socket data_socket"""
 	#Blocking connection
 	_data = data_socket.recv(size)
 	return _data
