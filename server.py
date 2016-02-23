@@ -15,9 +15,11 @@ def get_data_block(data_socket, size):
 	return _data
 	
 def get_data(data_socket, eof_value):
-	while (1):
+	"""Get data until eof value if found at end of received data block"""
+	terminate_get = False
+	while (terminate_get == False):
 		_data = get_data_block(data_socket, NB_SIZE_BLOCK)
-		print _data
+		print _data, "->", len(_data)
 	return _data
 
 def close_connection(connection):
