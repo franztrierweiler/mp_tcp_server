@@ -20,9 +20,13 @@ def get_data(data_socket, eof_value):
 	while (terminate_get == False):
 		_data = get_data_block(data_socket, NB_SIZE_BLOCK)
 		print _data, "->", len(_data)
+		if eof_value in _data:
+			print "ending character detected"
+			terminate_get = True
 	return _data
 
 def close_connection(connection):
+	"""Close connection"""
 	connection.close()
 
 def run_incoming_connection(nb_connections, waiting_socket):
